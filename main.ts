@@ -2,27 +2,20 @@
 Nombre archivo: main.ts
 Proposito: hacer pruebas con las clases del curso sobre TypeScript
 
-Ultima modificación: Primera introduccion a las funciones en Typescript
+Ultima modificación: Funciones con parametros obligatorios en Typescript
 Autor: Stephen 
 Fecha: 26/01/2020
-Hora: 08:48 am
+Hora: 02:38 pm
 
 */
 
-let heroe: string = "flash";
-
-// TypeScript especifica el tipo de dato devuelto por la función
-function imprimeHeroe(): string
+// aquí se indican que la función espera argumentos de tipo string y retornará un string    
+function nombreCompleto( nombre: string, apellido: string) : string
 {
-    return heroe;
-} // end imprimeHeroe
+    return nombre+' '+apellido;
+}// end nombreCompleto
 
-console.log( imprimeHeroe() );
+// los errores se detectan al llamar a la función, verificando el tipo de dato sea el correcto
+let persona = nombreCompleto("Juan", "manuel");
 
-// Se puede especificar el tipo de dato que se guardará en la variable activaBatisenal
-let activaBatisenal = function(): string
-{
-    return "Batisenal activada"
-} // end function anomina
-
-console.log( activaBatisenal );
+console.log(persona);
