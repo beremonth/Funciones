@@ -3,32 +3,21 @@
 Nombre archivo: main.ts
 Proposito: hacer pruebas con las clases del curso sobre TypeScript
 
-Ultima modificación: Funciones con parametros con valor por defecto en Typescript
+Ultima modificación: Funciones con parametros REST, osea un arreglo
 Autor: Stephen
-Fecha: 26/01/2020
-Hora: 03:29 pm
+Fecha: 27/01/2020
+Hora: 06:29 pm
 
 */
-// Indicar un valor de por defecto a un parametro, usamos el signo =, pero se convierte en opcional
-function nombreCompleto(nombre, apellido, capitalizar) {
-    if (capitalizar === void 0) { capitalizar = false; }
-    console.log("capitalizar: " + capitalizar);
-    // caso donde el apellido Si se recibe 
-    if (capitalizar) {
-        return capitalizarPalabras(nombre) + ' ' + capitalizarPalabras(apellido);
+// Indicar un parametro obligatorio y un arreglo de parametros con logitud variada, pero el arreglo se convierte en opcional
+function nombreCompleto(nombre) {
+    var arregloParametros = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        arregloParametros[_i - 1] = arguments[_i];
     }
-    // caso donde el apellido No se recibe 
-    else {
-        return nombre + ' ' + apellido;
-    }
+    return nombre + ' ' + arregloParametros.join(" ");
 } // end nombreCompleto
-function capitalizarPalabras(palabra) {
-    var palabraTransformada;
-    palabraTransformada = palabra.charAt(0).toUpperCase() + palabra.substr(1).toLowerCase();
-    return palabraTransformada;
-} // end capitalizarPalabras
-// indicamos que el argumento tendrá un valor diferte al que se inidicó en la función
-var personaTransformada = nombreCompleto("juan", "dominguez", true);
-var personaOriginal = nombreCompleto("juan", "dominguez");
-console.log(personaTransformada);
-console.log(personaOriginal);
+var Juan = nombreCompleto("Juan", "Aleman", "Bautista", "Alonso");
+var Jhon = nombreCompleto("Jhon", "Smith", "Sanderson", "Prince");
+console.log(Juan);
+console.log(Jhon);
